@@ -13,13 +13,16 @@ router.get("/login", async (req, res) => {
     );
 
   const url =
-    `https://oauth.deriv.com/oauth2/authorize?app_id=${appId}&l=PT&redirect_uri=${redirect}`;
+    `https://oauth.deriv.com/oauth2/authorize?app_id=${appId}&redirect_uri=${redirect}`;
 
   res.redirect(url);
 
 });
 
+// CALLBACK DERIV
 router.get("/callback", async (req, res) => {
+
+  console.log(req.query);
 
   const token =
     req.query.token1;
@@ -32,6 +35,7 @@ router.get("/callback", async (req, res) => {
 
   }
 
+  // volta para frontend
   res.redirect(
     `${process.env.FRONTEND_URL}/#/dashboard?token=${token}`
   );
