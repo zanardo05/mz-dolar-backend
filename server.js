@@ -15,12 +15,16 @@ app.use("/auth", derivRoutes);
 
 app.get("/", (req, res) => {
 
-  res.send("MZ Dólar Backend Online");
+  res.send(
+    "MZ Dólar Backend Online"
+  );
 
 });
 
 app.listen(process.env.PORT || 3000, () => {
 
-  console.log("Servidor online");
+  console.log(
+    "Servidor online"
+  );
 
 });
