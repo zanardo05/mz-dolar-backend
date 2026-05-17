@@ -19,7 +19,6 @@ router.get("/login", async (req, res) => {
 
 });
 
-// CALLBACK DERIV
 router.get("/callback", async (req, res) => {
 
   console.log(req.query);
@@ -35,7 +34,6 @@ router.get("/callback", async (req, res) => {
 
   }
 
-  // volta para frontend
   res.redirect(
     `${process.env.FRONTEND_URL}/#/dashboard?token=${token}`
   );
