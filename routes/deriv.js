@@ -19,23 +19,29 @@ router.get("/login", async (req, res) => {
 
 });
 
+// CALLBACK
 router.get("/callback", async (req, res) => {
 
-  console.log(req.query);
+  console.log(
+    "QUERY:",
+    req.query
+  );
 
-  const token =
-    req.query.token1;
+  // captura code OAuth
+  const code =
+    req.query.code;
 
-  if (!token) {
+  if (!code) {
 
     return res.send(
-      "Token não encontrado"
+      "Code OAuth não encontrado"
     );
 
   }
 
+  // volta para frontend
   res.redirect(
-    `${process.env.FRONTEND_URL}/#/dashboard?token=${token}`
+    `${process.env.FRONTEND_URL}/#/dashboard?code=${code}`
   );
 
 });
